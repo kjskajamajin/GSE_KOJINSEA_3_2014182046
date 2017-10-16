@@ -14,8 +14,12 @@ but WITHOUT ANY WARRANTY.
 #include "Dependencies\freeglut.h"
 
 #include "Renderer.h"
+#include "Object.h"
 
 Renderer *g_Renderer = NULL;
+
+vector<CObj> oVec;
+CObj cobj;
 
 void RenderScene(void)
 {
@@ -23,9 +27,11 @@ void RenderScene(void)
 	glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
 
 	// Renderer Test
-	g_Renderer->DrawSolidRect(0, 0, 0, 4, 1, 0, 1, 1);
+	//g_Renderer->DrawSolidRect(0, 0, 0, 4, 1, 0, 1, 1);
 
+	g_Renderer->DrawSolidRect(cobj.m_tInfo.x, cobj.m_tInfo.y, cobj.m_tInfo.z, cobj.m_tInfo.size, cobj.m_tInfo.r, cobj.m_tInfo.g, cobj.m_tInfo.b, cobj.m_tInfo.a);
 	glutSwapBuffers();
+	
 }
 
 void Idle(void)
@@ -35,6 +41,12 @@ void Idle(void)
 
 void MouseInput(int button, int state, int x, int y)
 {
+	if (state == 1)
+	{
+		cobj.m_tInfo.x - 250;
+		cobj.m_tInfo.y - 250;
+		oVec.push_back(cobj);
+	}
 	RenderScene();
 }
 
@@ -50,6 +62,7 @@ void SpecialKeyInput(int key, int x, int y)
 
 int main(int argc, char **argv)
 {
+	
 	// Initialize GL things
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);

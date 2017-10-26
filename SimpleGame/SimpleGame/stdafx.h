@@ -4,8 +4,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
+
+#include <iostream>
 #include "struct.h"
-
-#include <vector>
-
 using namespace std;

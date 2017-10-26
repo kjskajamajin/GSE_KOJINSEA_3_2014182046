@@ -1,30 +1,32 @@
 #include "stdafx.h"
 #include "Object.h"
-#include "Renderer.h"
 
-CObj::CObj()
+
+Cobj::Cobj()
 {
-	m_tInfo.a = 0;
-	m_tInfo.b = 0;
-	m_tInfo.r = 0;
-	m_tInfo.g = 0;
-	m_tInfo.size = 10;
-	m_tInfo.x = 0;
-	m_tInfo.y = 0;
-	m_tInfo.z = 0;
-	
+	memset(&m_Position,0,sizeof(m_Position));
+	memset(&m_Color, 0, sizeof(m_Color));
+	m_Speed.x = 10.0f;
+	m_Speed.y = 0.0f;
+	m_Speed.z = 0.0f;	
+}
+Cobj::~Cobj()
+{
+}
+INFO Cobj::GetPosition()
+{
+	return m_Position;
+}
+INFO Cobj::GetColor()
+{
+	return m_Color;
+}
+
+void Cobj::Update()
+{
+	m_Position.x += m_Speed.x;
+	m_Position.y += m_Speed.y;
+	m_Position.z += m_Speed.z;
 }
 
 
-CObj::~CObj()
-{
-
-}
-
-void CObj::Update()
-{
-	m_tInfo.x = m_tInfo.x  * 10;
-	m_tInfo.y = m_tInfo.y * 10;
-	m_tInfo.z = m_tInfo.z * 10;
-
-}

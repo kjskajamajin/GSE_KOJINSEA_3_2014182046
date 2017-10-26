@@ -1,6 +1,6 @@
 #pragma once
 
-typedef struct taginfo
+struct INFO
 {
 	float x;
 	float y;
@@ -10,4 +10,4 @@ typedef struct taginfo
 	float g;
 	float b;
 	float a;
-}INFO;
+};

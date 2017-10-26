@@ -9,29 +9,31 @@ but WITHOUT ANY WARRANTY.
 */
 
 #include "stdafx.h"
+#include "Object.h"
 #include <iostream>
 #include "Dependencies\glew.h"
 #include "Dependencies\freeglut.h"
 
 #include "Renderer.h"
-#include "Object.h"
+
 
 Renderer *g_Renderer = NULL;
 
-vector<CObj> oVec;
-CObj cobj;
+Cobj * pObject = NULL;
 
-void RenderScene(void)
+
+void RenderScene(void) // 프레임당 1회 호출
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
 
 	// Renderer Test
-	//g_Renderer->DrawSolidRect(0, 0, 0, 4, 1, 0, 1, 1);
 
-	g_Renderer->DrawSolidRect(cobj.m_tInfo.x, cobj.m_tInfo.y, cobj.m_tInfo.z, cobj.m_tInfo.size, cobj.m_tInfo.r, cobj.m_tInfo.g, cobj.m_tInfo.b, cobj.m_tInfo.a);
+	g_Renderer->DrawSolidRect(pObject->GetPosition().x, pObject->GetPosition().y, pObject->GetPosition().z, 40, 1, 0, 1, 1);
+	g_Renderer->DrawSolidRect(0, 0, 0, 1, 1, 0, 1, 1);
+
+
 	glutSwapBuffers();
-	
 }
 
 void Idle(void)
@@ -41,11 +43,9 @@ void Idle(void)
 
 void MouseInput(int button, int state, int x, int y)
 {
-	if (state == 1)
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		cobj.m_tInfo.x - 250;
-		cobj.m_tInfo.y - 250;
-		oVec.push_back(cobj);
+		pObject->SetPosition(x-250, -y+250, 0);
 	}
 	RenderScene();
 }
@@ -60,9 +60,15 @@ void SpecialKeyInput(int key, int x, int y)
 	RenderScene();
 }
 
+void Update(int value)
+{
+	pObject->Update();
+	glutTimerFunc(1000, Update, 1);
+}
+
 int main(int argc, char **argv)
 {
-	
+	pObject = new Cobj;
 	// Initialize GL things
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -92,11 +98,11 @@ int main(int argc, char **argv)
 	glutKeyboardFunc(KeyInput);
 	glutMouseFunc(MouseInput);
 	glutSpecialFunc(SpecialKeyInput);
-
+	glutTimerFunc(100, Update, 1); // 1초 주기로 업데이트
 	glutMainLoop();
 
 	delete g_Renderer;
-
-    return 0;
+	delete pObject;
+	return 0;
 }
 

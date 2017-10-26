@@ -1,18 +1,22 @@
 #pragma once
 
-class CObj
+class Cobj
 {
 private:
+	INFO m_Position;
+	INFO m_Color;
+	INFO m_Speed;
 
 public:
-	INFO	m_tInfo;
-	vector<float> vfSpeed;
-public:
-	CObj();
-	~CObj();
+	Cobj();
+	~Cobj();
+	
+	INFO GetPosition();
+	INFO GetColor();
 
-public:
+	INFO GetSpeed;
+	
+	void SetPosition(float x, float y, float z) { m_Position.x = x, m_Position.y = y, m_Position.z = z; }
 	void Update();
-	void DrawRect();
-};
 
+};

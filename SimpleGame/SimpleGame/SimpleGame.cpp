@@ -19,7 +19,7 @@ but WITHOUT ANY WARRANTY.
 
 Renderer *g_Renderer = NULL;
 
-Cobj * pObject = NULL;
+CObj * pObject = NULL;
 
 
 void RenderScene(void) // 프레임당 1회 호출
@@ -45,7 +45,9 @@ void MouseInput(int button, int state, int x, int y)
 {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		pObject->SetPosition(x-250, -y+250, 0);
+		CObj* pObject = new CObj;
+		
+		//pObject->SetPosition(x - 250.f, -y + 250.f, 0.f);
 	}
 	RenderScene();
 }
@@ -68,7 +70,7 @@ void Update(int value)
 
 int main(int argc, char **argv)
 {
-	pObject = new Cobj;
+	pObject = new CObj;
 	// Initialize GL things
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);

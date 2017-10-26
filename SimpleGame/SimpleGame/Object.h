@@ -1,6 +1,6 @@
 #pragma once
 
-class Cobj
+class CObj
 {
 private:
 	INFO m_Position;
@@ -8,12 +8,15 @@ private:
 	INFO m_Speed;
 
 public:
-	Cobj();
-	~Cobj();
+	float LifeTime;
+	float Life;
+
+public:
+	CObj();
+	~CObj();
 	
 	INFO GetPosition();
 	INFO GetColor();
-
 	INFO GetSpeed;
 	
 	void SetPosition(float x, float y, float z) { m_Position.x = x, m_Position.y = y, m_Position.z = z; }

@@ -23,6 +23,7 @@ public:
 	float fColor[4];
 	float fLife;
 	float fLifeTime;
-	//list<CObj*>* m_Bullet;
+
+	
 };
 

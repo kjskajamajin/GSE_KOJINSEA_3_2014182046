@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "SceneMgr.h"
+#include "Bullet.h"
 
 SceneMgr::SceneMgr(int width, int height)
 {
@@ -16,7 +17,8 @@ SceneMgr::SceneMgr(int width, int height)
 
 void SceneMgr::Render()
 {
-	m_renderer->DrawSolidRect(0, 0, 0, m_windowWidth, 0, 0, 0, 0.4);
+	//Obj Render
+	m_renderer->DrawSolidRect(0.f, 0.f, 0.f, m_windowWidth, 0.f, 0.f, 0.f, 0.4f);
 
 	list<CObj*>::iterator iter_begin = m_pObject.begin();
 	list<CObj*>::iterator iter_end = m_pObject.end();
@@ -34,6 +36,8 @@ void SceneMgr::Render()
 			(*iter_begin)->fColor[3]
 		);
 	}
+	// Bullet Render
+	
 }
 
 SceneMgr::~SceneMgr()

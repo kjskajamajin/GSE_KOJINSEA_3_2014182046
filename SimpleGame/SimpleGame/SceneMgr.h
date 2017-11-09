@@ -27,6 +27,7 @@ private:
 	bool ObjCollision(float minX, float minY, float maxX, float maxY, float minX1, float minY1, float maxX1, float maxY1);
 	void Collision();
 	list<CObj*> m_pObject;
+	list<CObj*>* m_Bullet;
 	Renderer *m_renderer;
 	int m_windowWidth;
 	int m_windowHeight;

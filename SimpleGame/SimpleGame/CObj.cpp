@@ -12,8 +12,8 @@ CObj::CObj(float x, float y)
 {
 	fx = x;
 	fy = y;
-	fSpeedX = 200.f;
-	fSpeedY = 200.f;
+	fSpeedX = 20.f * (rand()% 5);
+	fSpeedY = 20.f * (rand()% 5);
 	fSize = 20;
 	fColor[0] = 1;
 	fColor[1] = 1;

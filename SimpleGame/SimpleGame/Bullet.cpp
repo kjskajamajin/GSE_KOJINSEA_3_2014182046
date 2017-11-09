@@ -24,7 +24,7 @@ void Bullet::Initiallize()
 	fbx = 0;
 	fby = 0;
 	fbsize = 10;
-	fbspeed = 100;
+	fbspeed = 300;
 	bDead = false;
 }
 

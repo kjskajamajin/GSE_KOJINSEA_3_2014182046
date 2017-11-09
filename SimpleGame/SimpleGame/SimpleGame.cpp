@@ -20,7 +20,7 @@ but WITHOUT ANY WARRANTY.
 
 SceneMgr *pScene = NULL;
 CObj *pBullet = new Bullet;
-DWORD g_prevTime = 0;
+DWORD PrevTime = 0;
 CObj* pObj = new CObj;
 bool bLButton = false;
 
@@ -29,9 +29,9 @@ void RenderScene(void)
 	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-	DWORD currTime = timeGetTime();
-	DWORD elapsedTime = currTime - g_prevTime;
-	g_prevTime = currTime;
+	DWORD NowTime = timeGetTime();
+	DWORD elapsedTime = NowTime - PrevTime;
+	PrevTime = NowTime;
 
 	pScene->Update((float)elapsedTime);
 	pScene->Render();
@@ -48,7 +48,6 @@ void Idle(void)
 //GLUT_LEFT_BUTTON, GLUT_MIDDLE_BUTTON, GLUT_RIGHT_BUTTON
 //state
 //GLUT_UP, GLUT_DOWN
-bool Obj = false;
 
 void MouseInput(int button, int state, int x, int y)
 {
@@ -66,7 +65,6 @@ void MouseInput(int button, int state, int x, int y)
 		}
 		bLButton = false;
 	}
-
 	RenderScene();
 }
 
@@ -107,7 +105,7 @@ int main(int argc, char **argv)
 
 	pScene = new SceneMgr(500, 500);
 
-	g_prevTime = timeGetTime();
+	PrevTime = timeGetTime();
 
 	glutMainLoop();
 

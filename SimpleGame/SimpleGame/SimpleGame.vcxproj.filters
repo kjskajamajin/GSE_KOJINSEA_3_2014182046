@@ -16,8 +16,17 @@
     <Filter Include="소스 파일\Shaders">
       <UniqueIdentifier>{aa86e47f-445f-4440-9a76-173363b46c4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{bc13e113-472a-4167-bc4f-bf61d6346fb3}</UniqueIdentifier>
+    <Filter Include="Obj">
+      <UniqueIdentifier>{b51eb965-d6bc-47c3-a9ac-cf8f892745f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneMgr">
+      <UniqueIdentifier>{34303e80-99e4-41c8-9038-8f480ad1a517}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{b88a3055-4926-4647-b460-c9df25a4b296}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bullet">
+      <UniqueIdentifier>{c84d76f1-095a-4c50-b8d9-54658c415886}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,17 +39,17 @@
     <ClInclude Include="targetver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="struct.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="CObj.h">
+      <Filter>Obj</Filter>
     </ClInclude>
     <ClInclude Include="SceneMgr.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -50,14 +59,17 @@
     <ClCompile Include="SimpleGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Object</Filter>
+    <ClCompile Include="CObj.cpp">
+      <Filter>Obj</Filter>
     </ClCompile>
     <ClCompile Include="SceneMgr.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

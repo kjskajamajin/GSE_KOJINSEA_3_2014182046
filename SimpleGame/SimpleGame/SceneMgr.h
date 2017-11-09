@@ -1,19 +1,34 @@
 #pragma once
-#define MAX_OBJ_COUNT
+#include <cstdlib>
+#include <iostream>
 
-class Object;
+#include "Renderer.h"
+#include "CObj.h"
+
+#define OBJECT_BUILDING
+#define OBJECT_CHARACTER
+#define OBJECT_BULLET
+#define OBJECT_ARROW
+
+
 class SceneMgr
 {
-private:
-	Object* m_obj[MAX_OBJ_COUNT];
+public:
+	SceneMgr(int width, int height);
+	~SceneMgr();
 
 public:
-	void Update();
-	void Renderer();
-	void Release();
-	void CollisionTest();
-public:
-	SceneMgr();
-	~SceneMgr();
+	int		AddObj(float x, float y );
+	void	Update(float felapsedTime);
+	void	Render();
+	void	Release();
+
+private:
+	bool ObjCollision(float minX, float minY, float maxX, float maxY, float minX1, float minY1, float maxX1, float maxY1);
+	void Collision();
+	list<CObj*> m_pObject;
+	Renderer *m_renderer;
+	int m_windowWidth;
+	int m_windowHeight;
 };
 

@@ -16,17 +16,17 @@
     <Filter Include="소스 파일\Shaders">
       <UniqueIdentifier>{aa86e47f-445f-4440-9a76-173363b46c4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Obj">
-      <UniqueIdentifier>{b51eb965-d6bc-47c3-a9ac-cf8f892745f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneMgr">
-      <UniqueIdentifier>{34303e80-99e4-41c8-9038-8f480ad1a517}</UniqueIdentifier>
+    <Filter Include="Object">
+      <UniqueIdentifier>{7ebcaac3-aca0-4f0e-aa11-4431454b4c44}</UniqueIdentifier>
     </Filter>
     <Filter Include="Renderer">
-      <UniqueIdentifier>{b88a3055-4926-4647-b460-c9df25a4b296}</UniqueIdentifier>
+      <UniqueIdentifier>{03a8e897-7dc5-44ff-a1fb-ebd013f17ef5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Bullet">
-      <UniqueIdentifier>{c84d76f1-095a-4c50-b8d9-54658c415886}</UniqueIdentifier>
+    <Filter Include="SceneMgr">
+      <UniqueIdentifier>{773653b5-c2cc-4e1e-a674-c31eaa184b76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LoadPng">
+      <UniqueIdentifier>{26d7e1f0-7c9e-4375-a5f5-46c9cbaf9ca0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,17 +39,23 @@
     <ClInclude Include="targetver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CObj.h">
-      <Filter>Obj</Filter>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SceneMgr.h">
-      <Filter>SceneMgr</Filter>
+    <ClInclude Include="CObject.h">
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Bullet</Filter>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadPng.h">
+      <Filter>LoadPng</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -59,17 +65,17 @@
     <ClCompile Include="SimpleGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CObj.cpp">
-      <Filter>Obj</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneMgr.cpp">
-      <Filter>SceneMgr</Filter>
+    <ClCompile Include="CObject.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Bullet</Filter>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadPng.cpp">
+      <Filter>LoadPng</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +83,18 @@
       <Filter>소스 파일\Shaders</Filter>
     </None>
     <None Include="Shaders\SolidRect.vs">
+      <Filter>소스 파일\Shaders</Filter>
+    </None>
+    <None Include="Shaders\SolidRectWithTexture.fs">
+      <Filter>소스 파일\Shaders</Filter>
+    </None>
+    <None Include="Shaders\SolidRectWithTexture.vs">
+      <Filter>소스 파일\Shaders</Filter>
+    </None>
+    <None Include="Shaders\SolidRectWithTextureSeq.fs">
+      <Filter>소스 파일\Shaders</Filter>
+    </None>
+    <None Include="Shaders\SolidRectWithTextureSeq.vs">
       <Filter>소스 파일\Shaders</Filter>
     </None>
   </ItemGroup>

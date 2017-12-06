@@ -1,35 +1,31 @@
 #pragma once
-#include <cstdlib>
-#include <iostream>
 
-#include "Renderer.h"
-#include "CObj.h"
+class COBject;
+class Renderer;
 
-#define OBJECT_BUILDING
-#define OBJECT_CHARACTER
-#define OBJECT_BULLET
-#define OBJECT_ARROW
-
-
+#include <Windows.h>
 class SceneMgr
 {
 public:
-	SceneMgr(int width, int height);
-	~SceneMgr();
+	void Init();
+	void Render();
+	void Update(float time);
 
 public:
-	int		AddObj(float x, float y );
-	void	Update(float felapsedTime);
-	void	Render();
-	void	Release();
+	CObject** GetRedObj() { return m_obj[0]; }
+	int GetRedObjNum() { return m_objCnt[0]; }
+	void AddRedObject(CObject obj);
+	bool CanAddRedCharacter();
+	void AddBlueObject(CObject obj);
 
 private:
-	bool ObjCollision(float minX, float minY, float maxX, float maxY, float minX1, float minY1, float maxX1, float maxY1);
-	void Collision();
-	list<CObj*> m_pObject;
-	list<CObj*>* m_Bullet;
-	Renderer *m_renderer;
-	int m_windowWidth;
-	int m_windowHeight;
+	CObject* m_obj[2][MAX_OBJECTS_COUNT];
+	DWORD m_time;
+	DWORD m_createTime[2];
+	int m_objCnt[2];
+	Renderer* m_renderer;
+	int m_buildingImg[2];
+	int m_backImg;
+	int m_characterImg[2];
+	int m_bulletEffectImg;
 };
-
